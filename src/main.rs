@@ -6,7 +6,7 @@ use std::io::{self, BufRead};
 use std::time::SystemTime;
 use termcolor::{
     Color,
-    Color::{Green, Red},
+    Color::{Green, Red, Black},
     ColorChoice, ColorSpec, StandardStream, WriteColor,
 };
 
@@ -200,7 +200,7 @@ impl HunkBuffer {
         let mut ishared_added = 0;
         let mut ishared_removed = 0;
         let added_nohighlight = color_spec(Some(Green), None, false);
-        let added_highlight = color_spec(None, Some(Green), true);
+        let added_highlight = color_spec(Some(Black), Some(Green), true);
         let removed_nohighlight = color_spec(Some(Red), None, false);
         let removed_highlight = color_spec(None, Some(Red), true);
         for (line_start, line_end) in lines.iter() {
